@@ -1,11 +1,11 @@
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
-  name: disallow-latest-tag
+  name: no-latest-tag
 spec:
   validationFailureAction: Enforce
   rules:
-    - name: validate-image-tag
+    - name: mira-el-tag-de-la-imagen
       match:
         resources:
           kinds:
