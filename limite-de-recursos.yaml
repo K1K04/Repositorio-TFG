@@ -3,7 +3,7 @@ kind: ClusterPolicy
 metadata:
   name: require-cpu-memory
 spec:
-  validationFailureAction: enforce
+  validationFailureAction: Enforce
   rules:
     - name: check-resources
       match:
