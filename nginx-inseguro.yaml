@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-prueba
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-prueba
+  template:
+    metadata:
+      labels:
+        app: nginx-prueba
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest                 # Viola la política de no usar 'latest'
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: docker-sock
+              mountPath: /var/run/docker.sock # Viola la política de bloquear hostPath
+      volumes:
+        - name: docker-sock
+          hostPath:
+            path: /var/run/docker.sock        # hostPath prohibido
