@@ -1,0 +1,19 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: block-hostpath
+spec:
+  validationFailureAction: enforce
+  rules:
+    - name: deny-hostpath
+      match:
+        resources:
+          kinds:
+            - Pod
+            - Deployment
+      validate:
+        message: "No se permite el uso de hostPath por motivos de seguridad."
+        pattern:
+          spec:
+            volumes:
+              - hostPath: "!*"
