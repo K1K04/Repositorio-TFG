@@ -1,11 +1,11 @@
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
-  name: block-hostpath
+  name: no-hostpath
 spec:
   validationFailureAction: Enforce
   rules:
-    - name: deny-hostpath
+    - name: quita-el-hostpath
       match:
         resources:
           kinds:
