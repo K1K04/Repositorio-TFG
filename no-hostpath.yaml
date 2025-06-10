@@ -3,7 +3,7 @@ kind: ClusterPolicy
 metadata:
   name: block-hostpath
 spec:
-  validationFailureAction: enforce
+  validationFailureAction: Enforce
   rules:
     - name: deny-hostpath
       match:
