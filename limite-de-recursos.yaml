@@ -1,11 +1,11 @@
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
-  name: require-cpu-memory
+  name: especifica-cpu-memory
 spec:
   validationFailureAction: Enforce
   rules:
-    - name: check-resources
+    - name: revisa-los-recursos-aplicados
       match:
         resources:
           kinds:
