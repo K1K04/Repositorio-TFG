@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ubuntu-prueba-v1
+  labels:
+    app: ubuntu-prueba-v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ubuntu-prueba-v1
+  template:
+    metadata:
+      labels:
+        app: ubuntu-prueba-v1
+    spec:
+      containers:
+        - name: ubuntu
+          image: ubuntu:22.04
+          command: ["/bin/bash", "-c", "sleep infinity"]
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
